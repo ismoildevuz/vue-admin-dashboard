@@ -1,31 +1,30 @@
 <script setup>
-import { useStudentStore } from "../../stores/student/student";
+import { useRouter } from "vue-router";
 
-const studentStore = useStudentStore();
+const router = useRouter();
 </script>
 <template>
-  <div class="w-screen p-[50px]">
-    <div class="flex items-center justify-between">
-      <Header :title="`O'quvchilar`" />
-      <Menu />
-    </div>
-
-    <div class="flex items-center justify-between mt-[40px] mb-[80px]">
-      <SearchBox />
-      <div
-        class="w-[210px] h-[60px] flex items-center justify-center bg-[#4D44B5] rounded-full"
-      >
-        <i class="bx bx-plus text-[25px] text-white"></i>
+  <div class="w-full p-[50px]">
+    <div v-if="router.currentRoute.value.name === 'student'">
+      <div class="flex items-center justify-between">
+        <Header :title="`O'quvchilar`" />
+        <Menu />
       </div>
 
-      <div>
-        <table>
-          <thead>
-            <th>I.O.F</th>
-          </thead>
-        </table>
+      <div class="flex items-center justify-between mt-[40px] mb-[40px]">
+        <SearchBox />
+        <RouterLink
+          to="/student/add"
+          class="w-[210px] h-[60px] flex items-center justify-center bg-[#4D44B5] rounded-full hover:bg-[#443C9E] hover:cursor-pointer select-none"
+        >
+          <i class="bx bx-plus text-[25px] text-white"></i>
+        </RouterLink>
       </div>
+
+      <StudentTable />
     </div>
+
+    <RouterView v-if="router.currentRoute.value.name !== 'student'" />
   </div>
 </template>
-<style lang="" scoped></style>
+<style lang="scss" scoped></style>

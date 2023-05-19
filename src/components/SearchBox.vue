@@ -6,7 +6,7 @@ const searching = ref("");
 
 <template>
   <div
-    class="searchBox flex items-center gap-[20px] w-[350px] h-[60px] px-[32px] py-[14px] bg-white rounded-full"
+    class="searchBox flex items-center gap-[20px] w-[350px] h-[60px] px-[32px] py-[14px] bg-white rounded-full focus-within:outline focus-within:outline-[1px] focus-within:outline-[#a098ae]"
   >
     <div class="flex items-center">
       <i class="bx bx-search text-[32px] text-[#4D44B5]"></i>
@@ -17,17 +17,9 @@ const searching = ref("");
       type="text"
       id="searchInput"
       placeholder="Izlash"
-      class="text-[18px] leading-[27px] text-[#A098AE]"
+      class="text-[18px] leading-[27px] text-[#A098AE] focus:outline-none"
     />
   </div>
 </template>
 
-<style lang="scss" scoped>
-#searchInput:focus {
-  outline: none;
-}
-
-.searchBox:focus-within {
-  outline: #a098ae solid 1px;
-}
-</style>
+<style lang="scss" scoped></style>

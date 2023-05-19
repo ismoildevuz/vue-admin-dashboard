@@ -22,7 +22,10 @@ const paginationStore = usePaginationStore();
     </ul>
 
     <div class="flex items-center justify-between px-[32px]">
-      <PaginationInfo :paginationInfo="paginationStore.paginationInfo" />
+      <PaginationInfo
+        :paginationInfo="paginationStore.paginationInfo"
+        :color="'#303972'"
+      />
       <PaginationBar
         :pageNumbers="paginationStore.pageNumbers"
         :activePage="paginationStore.activePage"
